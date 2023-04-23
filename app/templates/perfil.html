@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Create Profile</title>
+</head>
+
+    <!-- I) HEADER SECTION-->
+    <header></header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo">
+                </a>
+                <a class="navbar-brand" href="#">  
+                    <a href="" class="btn btn-Warning my-2"></a>
+                    <a href="" class="btn btn-Warning my-2"></a>
+                    <a href="/blog" class="btn btn-custom btn-lg active text-light" role="button"aria-pressed="true">Blog</a>
+                    <a href="/dashboard" class="btn btn-warning btn-lg text-light" role="button" aria-pressed="true">Dashboard</a>
+                    <a href="/community" class="btn btn-info btn-lg" role="button" aria-pressed="true">Community</a>
+                    <a href="/logout" class="btn btn-danger btn-lg" role="button" aria-pressed="true">Logout</a>
+                </div>
+            </div>
+        </nav>    
+    </header>
+
+    <!-- II) MAIN SECTION -->
+    <main>
+        <div class="row justify-content-around pt-5 pb-4">
+            <div class="col-4">
+                <form action="/create" method="post" enctype="multipart/form-data" class="p-4 bg-info text-light">
+                    <h2 class="text-light">Create Profile</h2>
+                    <hr>
+                    <!-- Error Messages -->
+                    {% with messages = get_flashed_messages(category_filter=['create']) %}
+                    {% if messages %}
+                    <div class="alert alert-warning" role="alert">
+                        <span><strong>Error:</strong> {% for message in messages %}</span>
+                            <p class="m-0"> - {{message}}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Photo</label>
+                        <input class="form-control" type="file" id="formFile" name="photo">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" min="0" value="0" name="age" id="age" class="form-control" />
+                    </div>
+                    <div class="form-group" aria-label="Default select example">
+                        <label for="native_language">Native language:</label>
+                        <select id="native_language" name="native_language" class="form-control">
+                            <option value="Spanish">Spanish</option>
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Portuguese">Portuguese</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="language_of_interest">Language of interest:</label>
+                        <select id="language_of_interest" name="language_of_interest" class="form-control">
+                            <option value="Spanish">Spanish</option>
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Portuguese">Portuguese</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level:</label>
+                        <select id="level" name="level" class="form-control">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediated">Intermediated</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Interest:</label>
+                        <input type="text" name="interest" id="interest" class="form-control"/>
+                    </div>
+                    <button type="submit" value="Upload" class="btn btn-warning mt-3 text-light">Create</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

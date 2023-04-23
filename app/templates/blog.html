@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <title> Blog</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo">
+            </a>
+            <a class="navbar-brand" href="">
+                <a href="" class="btn btn-Warning my-2"></a>
+                <a href="" class="btn btn-Warning my-2"></a>
+                <a href="/books" class="btn btn-custom btn-lg active text-light" role="button" aria-pressed="true">Books</a>
+                <a href="/" class="btn btn-warning btn-lg text text-light" role="button" aria-pressed="true">Home</a>
+                <a href="/application" class="btn btn-info btn-lg text-light" role="button" aria-pressed="true">Register</a>
+                <a href="/logout" class="btn btn-danger btn-lg" role="button" aria-pressed="true">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+        <div class="container-xxl text-light
+                    text-center p-2
+                    fw-bolder alert-info" style="height: 280px; background-color: #2d3154">
+                    <br>
+                    <h6>BLOG</h6>
+                    <br>
+                    <h1 style="font-size: 52px;"><strong>Share to learn</strong></h1>
+                    <br>
+                    <br>
+                    <h4>Find out everything on our language blog: trends, tips, frequently asked questions and much more. </h4>
+                    <br>
+        </div>
+        <div class="container-fluid mb-2">
+            <div class="row top-cards">
+            {% for user in info_blogs %}
+                <div class="col-sm-4 mt-3 mb-4">
+                    <div class="border">
+                        <h5 class="text-info" hidden>{{user['name']|safe}}</h5>
+                        <div class="card-text blog-minicontent mt-3 ml-3 mr-3">{{ user['content']|safe }}</div>
+                        <a href="/show_blog/{{user["id"]}}" class="btn btn-custom btn-md active text-light mt-2 ml-3 mb-2" role="button" aria-pressed="true">Keep reading</a>
+                    </div>
+                </div>
+            {%endfor%}
+            </div> 
+        </div>     
+    </main>
+</body>
+</html>

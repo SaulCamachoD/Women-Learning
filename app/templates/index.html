@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <title>Woman learning</title>
+</head>
+<body>
+    <!-- I) HEADER SECTION-->
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo">
+                </a>
+                <a class="navbar-brand " href="#"></a>
+                    <a href="" class="btn btn-Warning my-2"></a>
+                    <a href="" class="btn btn-Warning my-2"></a>
+                    <a href="/blog" class="btn btn-custom btn-lg active text-light" role="button"aria-pressed="true">Blog</a>
+                    <a href="/books" class="btn btn-warning btn-lg text-light" role="button" aria-pressed="true">Books</a>
+                    <a href="/application" class="btn btn-info btn-lg text-light" role="button" aria-pressed="true">Register</a>
+                    <a href="/application" class="btn btn-danger btn-lg" role="button" aria-pressed="true">Login</a>
+            </div>
+        </nav>
+    </div>
+    <!-- II) MAIN SECTION-->
+    <div class="container-fluid mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="position: relative;">
+                <img src="static/images/woman10.jpg" alt="imagen_main" style="max-width: 100%;">
+                <div class="text-box" style="position: absolute; top: 0; left: 0; z-index: 1;">
+                    <h1 class="text-info" style="font-size: 3em; line-height: 1.0;">Where women build the confidence to <br>speak English fluently!</h1>
+                    <p class="text-dark" style="font-size: 1.5em; line-height: 1.5">Women learning is an online community supporting women to learn and practise speaking <br> English and other languages.</p>
+                    <a href="/application" class="btn btn-danger btn-lg">Start to learn!</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

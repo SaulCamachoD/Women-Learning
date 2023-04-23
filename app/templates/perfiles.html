@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <title>Profiles</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='images/logo4.png') }}" alt="logo">
+            </a>
+            <a class="navbar-brand" href="#">  
+                <a href="" class="btn btn-Warning my-2"></a>
+                <a href="" class="btn btn-Warning my-2"></a>
+                <a href="/blog" class="btn btn-custom btn-lg active text-light" role="button"aria-pressed="true">Blog</a>
+                <a href="/dashboard" class="btn btn-warning btn-lg text-light" role="button" aria-pressed="true">Dashboard</a>
+                <a href="/community" class="btn btn-info btn-lg" role="button" aria-pressed="true">Community</a>
+                <a href="/logout" class="btn btn-danger btn-lg" role="button" aria-pressed="true">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+    <br>
+    <div class="container_dashboard w-75">
+        <br>
+        <h1 class="font-weight-bold text-info">Your profile</h1>
+        <br>
+        <table class="table table-bordered">
+            <thead class="table-info">
+                <tr>
+                    <th>Age</th>
+                    <th>Native language</th>
+                    <th>Language of interest</th>
+                    <th>Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for profile in profiles %}
+                    <tr>
+                        <td>{{profile.age}}</td>
+                        <td>{{profile.native_language}}</td>
+                        <td>{{profile.language_of_interest}}</td>
+                        <td>{{profile.level}}</td>
+                        <td>
+                            <form method="POST" action="/profile/{{profile.id}}/destroy">
+                                    <input type="hidden" name="now_user_id" value="">
+                                    <button type="submit" a href="/messages" class="btn btn-outline-danger btn-lg" value="" name="user_id">Delete</button>
+                            </form>
+                        </td>
+                    <tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
